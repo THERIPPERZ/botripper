@@ -29,8 +29,8 @@ class Config(object):
         'LINE_SERVICES': '1459630796'
     }
     
-    APP_TYPE    = "IOSIPAD\t11.2.5\tiPhone X\t11.2.5"
-    APP_VER     = '8.9.0'
+    APP_TYPE    = "CHROMEOS\t2.1.5\tCHROMEOS\t10.0.0"
+    APP_VER     = '8.9.1'
     CARRIER     = '51089, 1-0'
     SYSTEM_NAME = 'CHROMEOS'
     SYSTEM_VER  = '10.12.0'

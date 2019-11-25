@@ -272,12 +272,12 @@ class Talk(object):
             else:b+= '\n│{}. {} | {}'.format(no,a[i],c[i])
         self.sendMessage(to,"{}".format(b))
     
-    def adityaarchi(self,wait,sd,dd,ss,split,msg,tex,nama=[]):
+    def adityaarchi(self,wait,sd,dd,ss,split,to,tex,nama=[]):
         selection = MySplit(split,range(1,len(nama)+1))
         k = len(nama)//20
         for a in range(k+1):
-            if a == 0:eto='╭「 '+sd+' 」─'+tex
-            else:eto='├「 '+sd+' 」─'+tex
+            if a == 0:eto='?? '+sd+' ??'+tex
+            else:eto='?? '+sd+' ??'+tex
             text = ''
             mids = []
             no = a
@@ -285,7 +285,7 @@ class Talk(object):
                 mids.append(nama[i-1])
                 if dd == 'kick':self.kickoutFromGroup(ss,[nama[i-1]]);hh = ''
                 if dd == 'delfriend':
-                    try:self.AdityadeleteContact(nama[i-1]);hh = 'Del Friend'
+                    try:self.deleteContact(nama[i-1]);hh = 'Del Friend'
                     except:hh = 'Not Friend User'
                 if dd == 'delbl':
                     try:wait['blacklist'].remove(nama[i-1]);hh = 'Del BL'
@@ -302,11 +302,12 @@ class Talk(object):
                 if dd == '':hh = ''
                 if dd == 'tag':hh = ''
                 no+= 1
-                if no == len(selection.parse()):text+= "\n╰{}. @! {}".format(i,hh)
-                else:text+= "\n│{}. @! {}".format(i,hh)
+                if no == len(selection.parse()):text+= "\n?{}. @! {}".format(i,hh)
+                else:text+= "\n?{}. @! {}".format(i,hh)
             if dd == 'tag':self.sendMention(ss,eto+text,sd,mids)
-            else:self.sendMention(msg.to,eto+text,sd,mids)
-        if dd == 'tag':self.sendMessage(msg.to,'╭「 Mention 」{}\n╰Status: Success tag {} mem'.format(tex,len(nama)-(len(nama)-len(selection.parse()))))
+            else:self.sendMention(to,eto+text,sd,mids)
+        if dd == 'tag':self.sendMessage(to,'?? Mention ?{}\n?Status: Success tag {} mem'.format(tex,len(nama)-(len(nama)-len(selection.parse()))))
+        else:self.sendMessage(to,'?? Mention ?{}\n?Status: Success tag {} mem'.format(tex,len(nama)-(len(nama)-len(selection.parse()))))
     
     def adityasuperdata(self,to,wait,text='',text1='',data=[]):
         to = to
@@ -338,6 +339,35 @@ class Talk(object):
                 self.sendImage(to,'{}.png'.format(b))
                 os.remove('{}.png'.format(b))
             except:continue
+            
+    def getinformations(self,to,mid,wait):
+        try:
+            if mid in wait["whitelist"]:a = "Whitelisted: Yes"
+            else:a = "Whitelisted: No"
+            if mid in wait["blacklist"]:b = "Blacklisted: Yes"
+            else:b = "Blacklisted: No"
+            h = self.getContact(mid).statusMessage
+            if h == '':hh = '\n'
+            else:hh = "Status:\n" + h + "\n\n"
+            zxc = " ? ID ?\nName: @!\n" + hh + "User ID:\n" + mid + "\n"+a+" "+b
+            self.sendMention(to, zxc, '',[mid])
+            self.sendContact(to,mid)
+        except:
+            ginfo = self.getCompactGroup(mid)
+            try:
+                gCreators = ginfo.creator.mid;gtime = ginfo.createdTime
+            except:
+                gCreators = ginfo.members[0].mid;gtime = ginfo.createdTime
+            if ginfo.invitee is None:
+                sinvitee = "0"
+            else:
+                sinvitee = str(len(ginfo.invitee))
+            if ginfo.preventedJoinByTicket == True:u = "Disable"
+            else:u = "line://ti/g/" + self.reissueGroupTicket(mid)
+            zxc = " ? ID ?\nGroup Name:\n{}\n\nGroup ID:\n{}\n\nAnggota: {}\nInvitation: {}\nTicket:{}\n\nCreated at:\n{}\nby @!".format(ginfo.name,mid,len(ginfo.members),sinvitee,u,humanize.naturaltime(datetime.fromtimestamp(gtime/1000)))
+            self.sendMention(to,zxc,'',[gCreators])
+            self.sendContact(to,gCreators)   
+         
     def getinformation(self,to,mid,data):
         try:
             if mid in data["bots"]:a = "Whitelisted: Yes"
@@ -907,6 +937,10 @@ class Talk(object):
         return self.updateProfile(profile)
 
     """Group"""
+    @loggedIn
+    def getRecentMessagesV2(self, chatId, count=1001):
+        return self.talk.getRecentMessagesV2(chatId,count)    
+    
     @loggedIn
     def getChatRoomAnnouncementsBulk(self, chatRoomMids):
         return self.talk.getChatRoomAnnouncementsBulk(chatRoomMids)

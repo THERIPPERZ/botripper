@@ -21,19 +21,19 @@ class Config(object):
     LINE_LIFF_QUERY_PATH        = '/LIFF1'
 
     CHANNEL_ID = {
-        'LINE_TIMELINE': '1341209850',
+        'LINE_TIMELINE': '1341209950',
         'LINE_WEBTOON': '1401600689',
         'LINE_TODAY': '1518712866',
         'LINE_STORE': '1376922440',
         'LINE_MUSIC': '1381425814',
         'LINE_SERVICES': '1459630796'
     }
-    
-    APP_TYPE    = "IOSIPAD\t11.2.5\tiPhone X\t11.2.5"
-    APP_VER     = '8.9.0'
+
+    APP_TYPE    = ApplicationType._VALUES_TO_NAMES[400]
+    APP_VER     = '5.5.5'
     CARRIER     = '51089, 1-0'
-    SYSTEM_NAME = 'CHROMEOS'
-    SYSTEM_VER  = '10.12.0'
+    SYSTEM_NAME = 'Fc.Pea150'
+    SYSTEM_VER  = '11.2.5'
     IP_ADDR     = '8.8.8.8'
     EMAIL_REGEX = re.compile(r"[^@]+@[^@]+\.[^@]+")
 

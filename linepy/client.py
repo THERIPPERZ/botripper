@@ -29,7 +29,7 @@ class LINE(Auth, Models, Talk, Square, Call, Timeline, Shop):
 
         Models.__init__(self)
         Talk.__init__(self)
-        Square.__init__(self)
+#        Square.__init__(self)
         Call.__init__(self)
         Timeline.__init__(self)
-        Shop.__init__(self)
+ #       Shop.__init__(self)
