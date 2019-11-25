@@ -32,30 +32,22 @@ try:
 except ImportError:
     import urllib2
 #==============================================================================#
-try:
-    with open('token.txt','r') as tokens:
-        token = tokens.read()
-    print(str(token))
-except Exception as e:
-    maxgie = LINE(token)
-maxgie = LINE(token)
-maxgie.log("Auth Token : " + str(maxgie.authToken))
-
-waitOpen = codecs.open("Max2.json","r","utf-8")
-settingsOpen = codecs.open("max.json","r","utf-8")
-imagesOpen = codecs.open("image.json","r","utf-8")
-stickersOpen = codecs.open("sticker.json","r","utf-8")
-apaloOpen = codecs.open("YoBots.json","r","utf-8")
-YoBots = json.load(apaloOpen)
-wait = json.load(waitOpen)
-images = json.load(imagesOpen)
-settings = json.load(settingsOpen)
-stickers = json.load(stickersOpen)
-#==============================================================================#
-maxgieMID = maxgie.profile.mid
-maxgieProfile = maxgie.getProfile()
+try: with open('token.txt','r') as tokens: maxgie = LINE(token) 
+maxgie.log("Auth Token : " + str(maxgie.authToken)) maxgie.log("Timeline 
+Token : " + str(maxgie.tl.channelAccessToken))
+        token = tokens.read() waitOpen = 
+codecs.open("Max2.json","r","utf-8") settingsOpen = 
+codecs.open("max.json","r","utf-8") imagesOpen = 
+codecs.open("image.json","r","utf-8") stickersOpen = 
+codecs.open("sticker.json","r","utf-8") apaloOpen = 
+codecs.open("YoBots.json","r","utf-8") YoBots = json.load(apaloOpen) 
+wait = json.load(waitOpen) images = json.load(imagesOpen) settings = 
+json.load(settingsOpen) stickers = json.load(stickersOpen)
+    
+print(str(token))#==============================================================================# 
+maxgieMID = maxgie.profile.mid maxgieProfile = maxgie.getProfile() 
 maxgieSettings = maxgie.getSettings()
-#==============================================================================#
+except Exception as e:#==============================================================================#
 maxgieMID = maxgie.profile.mid
 maxgieProfile = maxgie.getProfile()
 maxgieSettings = maxgie.getSettings()
@@ -161,11 +153,11 @@ tagadd = {
     "tagss": False,
     "tags": False,
     "tag": "วิธีตั้งแทค \n- ตั้งแทค ข้อความที่ต้องการ",
-    "add": "แอดมาสนใจงานตัวไหนบอกได้คับ",
+    "add": "🌟 •₮€₳M•𖤍ĿɪϰüXཽ 🌟\nปล่อยเช่าเชลบอท\n\n---------- คุณสมบัติ ----------\n\n↪ บินกลุ่มได้ \n↪ เตะรวบคิก\n↪ ระบบป้องกันกลุ่ม\n↪ กันรัน & กินห้องรัน\n↪ ระบบยัดดำ & ไล่ดำ \n↪ ออโต้บล็อค เปิด & ปิด\n↪ และลูกเล่นอื่นๆอีกมากมาย\n\n👇 ยังมีอีกน้าา 👇\n\n↪ รับทำคิก 5 & 10 & 20\n↪ ขายไฟล์คิกเกอร์\n↪ ขายสติ๊กเกอร์ & ธีมไลน์ ราคาถูก\n↪ รับเติมเหรียญไลน์ขั้นต่ำ 800©\n↪ เหรียญแท้ 💯% รับประกัน\n\n➰ สนใจหรือสอบถาม คลิก ➰\n↪ http://line.me/ti/p/~.poohbear\nhttp://line.me/ti/p/~selbot1995",
     "badd": "ระบบบล็อคคุณอัตโนมัติ",
     "wctext": "ยินดีต้อนรับเข้ากลุ่มนะครับ 😃",
     "lv": "บ๊ายบาย >< ขอให้เธอโชคดีงับ >_<",
-    "b": " ระบบบล็อค ออโต้ มีอะไรสอบถามไว้ได้คับจะรีบกลับมาตอบคัย",
+    "b": "⫸𖤍❍ ❍ ໂ တ้ ບ ລ็ ◐ の⫷\n🌟 •₮€₳M•𖤍ĿɪϰüXཽ 🌟\nปล่อยเช่าเชลบอท\n\n---------- คุณสมบัติ ----------\n\n↪ บินกลุ่มได้ \n↪ เตะรวบคิก\n↪ ระบบป้องกันกลุ่ม\n↪ กันรัน & กินห้องรัน\n↪ ระบบยัดดำ & ไล่ดำ \n↪ ออโต้บล็อค เปิด & ปิด\n↪ และลูกเล่นอื่นๆอีกมากมาย\n\n👇 ยังมีอีกน้าา 👇\n\n↪ รับทำคิก 5 & 10 & 20\n↪ ขายไฟล์คิกเกอร์\n↪ ขายสติ๊กเกอร์ & ธีมไลน์ ราคาถูก\n↪ รับเติมเหรียญไลน์ขั้นต่ำ 800©\n↪ เหรียญแท้ 💯% รับประกัน\n\n➰ สนใจหรือสอบถาม คลิก ➰\n↪ http://line.me/ti/p/~.poohbear\nhttp://line.me/ti/p/~selbot1995",
     "c":"Auto Like By. 🌟 •₮€₳M•𖤍ĿɪϰüXཽ 🌟 ",
     "m": "สวัสดีครับ ทุกท่าน >_<",
 }
@@ -407,7 +399,7 @@ def sendMentionFooter(to, mid, firstmessage, lastmessage):
         text += mention + str(lastmessage)
         nama = "{}".format(maxgie.getContact(maxgieMID).displayName)
         img = "http://dl.profile.line-cdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus)
-        ticket = "http://line.me/ti/p/~.install"
+        ticket = "http://line.me/ti/p/~selbot1995"
         maxgie.sendMessage(to, text, {'AGENT_LINK': ticket, 'AGENT_ICON': img, 'AGENT_NAME': nama, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
         logError(error)
@@ -1034,7 +1026,7 @@ async def maxgieBot(op):
                          "size":"full",
                          "action": {
                              "type": "uri",
-                             "uri": "http://line.me/ti/p/~.install"
+                             "uri": "http://line.me/ti/p/~selbot1995"
                          }
                     },
                 }
@@ -1103,7 +1095,7 @@ async def maxgieBot(op):
                          "size":"full",
                          "action": {
                              "type": "uri",
-                             "uri": "http://line.me/ti/p/~.install"
+                             "uri": "http://line.me/ti/p/~selbot1995"
                          }
                     },
                 }
@@ -1417,29 +1409,29 @@ async def maxgieBot(op):
                     sa="วิธีใช้ ประกาศกลุ่ม >\\<"
                     sa+="\n- ประกาศ ข้อความ/ไอดีไลน์"
                     sa+="\nตัวอย่าง >\\<"
-                    sa+="\n- ประกาศ มอนิ่ง/.install"
-                    data = {"type": "text","text": "{}".format(sa),"sentBy": {"label": "🌟 •₮€₳M•𖤍ĿɪϰüXཽ 🌟", "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),"linkUrl": "line://nv/profilePopup/mid=u694b9cf8e085499c1c6fd36773509f1f"}}
+                    sa+="\n- ประกาศ มอนิ่ง/selbot1995."
+                    data = {"type": "text","text": "{}".format(sa),"sentBy": {"label": "🌟 •₮€₳M•𖤍ĿɪϰüXཽ 🌟", "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),"linkUrl": "line://nv/profilePopup/mid=ue6245127d69b7edfc88835ec0d535cd6"}}
                     sendTemplate(to,data)
                 if text.lower() == "ตั้งapi":
                     sa = "วีธีใช้ api >\\<"
                     sa += "\n- ตั้งapi คีย์เวิร์ด;;ตอบกลับ"
                     sa += "\nตัวอย่าง >\\<"
                     sa += "\n- ตั้งapi เทส;;เทสทำไม"
-                    data = {"type": "text","text": "{}".format(sa),"sentBy": {"label": "🌟 •₮€₳M•𖤍ĿɪϰüXཽ 🌟", "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),"linkUrl": "line://nv/profilePopup/mid=u694b9cf8e085499c1c6fd36773509f1f"}}
+                    data = {"type": "text","text": "{}".format(sa),"sentBy": {"label": "🌟 •₮€₳M•𖤍ĿɪϰüXཽ 🌟", "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),"linkUrl": "line://nv/profilePopup/mid=ue6245127d69b7edfc88835ec0d535cd6"}}
                     sendTemplate(to,data)
                 if text.lower() == "stag":
                     sa = "วิธีใช้ stag >\\<"
                     sa += "\n- stag [เลขที่ต้องการ] @user"
                     sa += "\nตัวอย่าง >\\<"
                     sa += "\n- stag 1 @user"
-                    data = {"type": "text","text": "{}".format(sa),"sentBy": {"label": "🌟 •₮€₳M•𖤍ĿɪϰüXཽ 🌟", "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),"linkUrl": "line://nv/profilePopup/mid=u694b9cf8e085499c1c6fd36773509f1f"}}
+                    data = {"type": "text","text": "{}".format(sa),"sentBy": {"label": "🌟 •₮€₳M•𖤍ĿɪϰüXཽ 🌟", "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),"linkUrl": "line://nv/profilePopup/mid=ue6245127d69b7edfc88835ec0d535cd6"}}
                     sendTemplate(to,data)
                 if text.lower() == "สะกดกิต":
                     sa = "วิธีใช้ สะกดกิต >\\<"
                     sa += "\n- สะกดกิต [ข้อความ] @user"
                     sa += "\nตัวอย่าง >\\<"
                     sa += "\n- สะกดกิต รักนะ @user"
-                    data = {"type": "text","text": "{}".format(sa),"sentBy": {"label": "🌟 •₮€₳M•𖤍ĿɪϰüXཽ 🌟", "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),"linkUrl": "line://nv/profilePopup/mid=u694b9cf8e085499c1c6fd36773509f1f"}}
+                    data = {"type": "text","text": "{}".format(sa),"sentBy": {"label": "🌟 •₮€₳M•𖤍ĿɪϰüXཽ 🌟", "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),"linkUrl": "line://nv/profilePopup/mid=ue6245127d69b7edfc88835ec0d535cd6"}}
                     sendTemplate(to,data)                     
                 if msg.text.lower().startswith('ลงโน๊ต '):
                     if msg._from in admin:
@@ -1721,7 +1713,7 @@ async def maxgieBot(op):
                           maxgie.unsendMessage(msg_id)
                           duc1(to, "🦋 เสร็จแล้ว >_< 🦋")
           
-                if text.lower() == "/เชค":
+                if text.lower() == "เชค":
                     add = tagadd["add"]
                     badd = tagadd["badd"]
                     tag = tagadd["tag"]
@@ -1842,7 +1834,7 @@ async def maxgieBot(op):
                                         "action": {
                                             "type":"uri",
                                             "label":"ผู้สร้าง",
-                                            "uri": "http://line.me/ti/p/~.install"
+                                            "uri": "http://line.me/ti/p/~selbot1995"
                                         },
                                     },
                                 ]
@@ -1850,27 +1842,27 @@ async def maxgieBot(op):
                         }
                     }
                     sendTemplate(to, data)
-                if text.lower() == "/help" or text.lower() == "คำสั่ง":
+                if text.lower() == "help" or text.lower() == "คำสั่ง":
                             contact = maxgie.getContact(maxgieMID)
                             s = "#FFFF00"
                             sa = "🍎 me\n"
-                            sa += "🍎 ////me\n"
                             sa += "🍎 คท\n"
                             sa += "🍎 ไอดีเรา\n"
                             sa += "🍎 ชื่อเรา\n"
                             sa += "🍎 ตัสเรา\n"
                             sa += "🍎 รูปเรา\n"
+                            sa += "🍎 รูปวีดีโอเรา\n"
                             sa += "🍎 ปกเรา\n"
                             sa += "🍎 ข้อมูล\n"
                             sa += "🍎 รีบอท\n"
-                            sa += "🍎 ออน [ ออน1-5 ]\n"
+                            sa += "🍎 ออน [ ออน1-3 ]\n"
                             sa += "🍎 เชครัน\n"
                             sa += "🍎 /ลบรัน\n"
                             sa += "🍎 เชคค่า\n"
                             sa += "🍎 ลงโน๊ต [ ข้อความ ]\n"
                             sa += "🍎 ยกเชิญ\n"    
                             sa += "🍎 เชิญคลอ\n"
-                            sa += "🍎 คลอ [ จำนวน ]"                                                         
+                            sa += "🍎 คลอ [จำนวน]"                                                         
                             ss = "🍎 แทค\n"
                             ss += "🍎 mentionnote [ แทคโน๊ต ]\n"
                             ss += "🍎 เทส\n"    
@@ -1882,13 +1874,13 @@ async def maxgieBot(op):
                             ss += "🍎 เชคapi\n"
                             ss += "🍎 เชคบล็อค\n"                                
                             ss += "🍎 แปรงคท [ MID ]\n"
-                            ss += "🍎 ยูทูป [ ข้อความ ]\n"
+                            ss += "🍎 ยูทูป [ข้อความ]\n"
                             ss += "🍎 เครื่องคิดเลข\n"
                             ss += "🍎 ขอเพลง [ ชื่อเพลง ]\n"
+                            ss += "🍎 เพลสโต [ ชื่อแอพ ]\n"
                             ss += "🍎 ตั้งรูปโปรไฟล์ [ ลิ้งยูทูป ]\n"
-                            ss += "🍎 ประกาศ: [ ประกาศข้อความ ]\n"
-                            ss += "🍎 ประกาศ [ ประกาศเฟก ]\n"
-                            ss += "🍎 ยกเลิก [ เว้นวรรค ]"
+                            ss += "🍎 ประกาศ [ ใส่ข้อความที่ต้องการ ]\n"
+                            ss += "🍎 ยกเลิก1 [ ยกเลิกข้อความทั้งหมด ]"
                             se = "🍎 ดำ ส่งคท.\n"
                             se += "🍎 ขาว ส่งคท.\n"
                             se += "🍎 ดำ @user\n"
@@ -1942,7 +1934,7 @@ async def maxgieBot(op):
                             sti += "🍎 บล็อค @user\n"
                             sti += "🍎 เพิ่มเพื่อน @user\n"
                             sti += "🍎 ลบเพื่อน @user\n"    
-                            sti += "🍎 ทัก [ จำนวน ] สต"
+                            sti += "🍎 ทัก [จำนวน] สต"
                             sev = "🍎 แอด\n"
                             sev += "🍎 คท @user\n"
                             sev += "🍎 ไอดี @user\n"
@@ -1969,14 +1961,14 @@ async def maxgieBot(op):
                             sd2 += "[ สแปม ของขวัญ ]\n"
                             sd2 += "🍎 spam 2 [ จำนวน ] [ @user ]\n"
                             sd2 += "[ สแปม แทค ]\n"
-                            sd2 += "🍎 ของขวัญ @ [ จำนวน ] สต\n"                                
-                            sd2 += "🍎 โหล @ [ จำนวน ] สแปมแทค\n"
-                            sd2 += "🍎 โทร @ [ จำนวน ] สแปมคลอ\n"
+                            sd2 += "🍎 ของขวัญ [ จำนวน ] [ @user ] สต\n"                                
+                            sd2 += "🍎 โหล [ จำนวน ] [ @user ] สแปมแทค\n"
+                            sd2 += "🍎 โทร [ จำนวน ] [ @user ] สแปมคลอ\n"
                             sd2 += "🍎 /ไวรัส \n"
                             sd2 += "🍎 /ไวรัส2\n"
-                            sd2 += "🍎 /นับ [ จำนวน ]\n"    
+                            sd2 += "🍎 kickjs [ คำสั่งพิเศษ ]\n"    
                             sd2 += "🍎 kickpy [ คำสั่งพิเศษ ]\n"
-                            sd2 += "🍎 kickjs [ คำสั่งพิเศษ ]\n"
+                            sd2 += "🍎 /นับ [ จำนวน ]\n"
                             sd2 += "🍎 ระบบป้องกัน [ โหมดป้องกันกลุ่ม ]\n"
                             sd2 += "\n"     
                             dataProfile = [
@@ -2027,8 +2019,8 @@ async def maxgieBot(op):
                                                  "color":"#191970",
                                                  "action":{
                                                      "type":"uri",
-                                                     "label":"✯L͙I͙N͙U͙X͙ H͙U͙N͙T͙E͙R͙ C͙L͙U͙B͙✯",
-                                                     "uri": "http://line.me/ti/p/~.install"
+                                                     "label":"ติดต่อ ֆҽlßօℓ⇨ พ่อค้า",
+                                                     "uri": "http://line.me/ti/p/~selbot1995"
                                                  },
                                             },
                                         ]
@@ -2080,7 +2072,7 @@ async def maxgieBot(op):
                                                  "color":"#191970",
                                                  "action":{
                                                      "type":"uri",
-                                                     "label":"✯L͙I͙N͙U͙X͙ H͙U͙N͙T͙E͙R͙ C͙L͙U͙B͙✯",
+                                                     "label":"สติ้กเกอร์&เหรียญ⇨ แม่ค้า",
                                                      "uri": "http://line.me/ti/p/~.poohbear"
                                                  },
                                             },
@@ -2133,7 +2125,7 @@ async def maxgieBot(op):
                                                  "color":"#191970",
                                                  "action":{
                                                      "type":"uri",
-                                                     "label":"✯L͙I͙N͙U͙X͙ H͙U͙N͙T͙E͙R͙ C͙L͙U͙B͙✯",
+                                                     "label":"ติดต่อ ֆҽlßօℓ ⇨ พ่อค้า",
                                                      "uri": "http://line.me/ti/p/~selbot1995"
                                                  },
                                             },
@@ -2209,7 +2201,7 @@ async def maxgieBot(op):
                                                  "color":"#191970",
                                                  "action":{
                                                      "type":"uri",
-                                                     "label":"✯L͙I͙N͙U͙X͙ H͙U͙N͙T͙E͙R͙ C͙L͙U͙B͙✯",
+                                                     "label":"สติ้กเกอร์&เหรียญ⇨ แม่ค้า",
                                                      "uri": "http://line.me/ti/p/~.poohbear"
                                                  },
                                             },
@@ -2262,8 +2254,8 @@ async def maxgieBot(op):
                                                  "color":"#191970",
                                                  "action":{
                                                      "type":"uri",
-                                                     "label":"✯L͙I͙N͙U͙X͙ H͙U͙N͙T͙E͙R͙ C͙L͙U͙B͙✯",
-                                                     "uri": "http://line.me/ti/p/~.install"
+                                                     "label":"ติดต่อ ֆҽlßօℓ ⇨ พ่อค้า",
+                                                     "uri": "http://line.me/ti/p/~selbot1995"
                                                  },
                                             },
                                         ]
@@ -2315,7 +2307,7 @@ async def maxgieBot(op):
                                                  "color":"#191970",
                                                  "action":{
                                                      "type":"uri",
-                                                     "label":"✯L͙I͙N͙U͙X͙ H͙U͙N͙T͙E͙R͙ C͙L͙U͙B͙✯",
+                                                     "label":"สติ้กเกอร์&เหรียญ⇨ แม่ค้า",
                                                      "uri": "http://line.me/ti/p/~.poohbear"
                                                  },
                                             },
@@ -2368,8 +2360,8 @@ async def maxgieBot(op):
                                                  "color":"#191970",
                                                  "action":{
                                                      "type":"uri",
-                                                     "label":"✯L͙I͙N͙U͙X͙ H͙U͙N͙T͙E͙R͙ C͙L͙U͙B͙✯",
-                                                     "uri": "http://line.me/ti/p/~.install"                                                                                                                         
+                                                     "label":"ติดต่อ ֆҽlßօℓ ⇨ พ่อค้า",
+                                                     "uri": "http://line.me/ti/p/~selbot1995"                                                                                                                         
                                                  },
                                             },
                                         ]
@@ -2538,7 +2530,7 @@ async def maxgieBot(op):
                                                         "size": "md",
                                                         "action": {
                                                             "type": "uri",
-                                                            "uri": "http://line.me/ti/p/~.install"
+                                                            "uri": "http://line.me/ti/p/~gg_game1995"
                                                         }
                                                     },
                                                     {
@@ -2610,7 +2602,7 @@ async def maxgieBot(op):
                                                         "size": "md",
                                                         "action": {
                                                             "type": "uri",
-                                                            "uri": "http://line.me/ti/p/~.install"
+                                                            "uri": "http://line.me/ti/p/~selbot1995"
                                                         }
                                                     },
                                                     {
@@ -2696,7 +2688,7 @@ async def maxgieBot(op):
                                                         "size": "md",
                                                         "action": {
                                                             "type": "uri",
-                                                            "uri": "http://line.me/ti/p/~.install"
+                                                            "uri": "http://line.me/ti/p/~selbot1995"
                                                         }
                                                     },
                                                     {
@@ -3388,213 +3380,6 @@ async def maxgieBot(op):
                             }
                         }
                     }
-                    sendTemplate(to, data)
-                if text.lower() == 'ออน4':
-                    timeNow = time.time() - Start
-                    runtime = timeChange(timeNow)
-                    run = "⇨ เวลาออน ⇦\n"
-                    run += runtime
-                    data = {
-"type":"flex",
-"altText": "{}".format(run),
-"contents":{
-"type": "carousel",
-"contents": [
-{
-"type": "bubble",
-"styles": {
-"body": {"backgroundColor": "#000000"},
-"footer": {"backgroundColor": "#000000"},
-},
-"body": {
-"type": "box",
-"layout": "vertical",
-"contents": [
-{
-"type": "box",
-"layout": "horizontal",
-"contents": [
-{
-"type": "box",
-"layout": "vertical",
-"contents": [
-{
-"type": "image",
-"url": "https://obs.line-scdn.net/{}".format(maxgie.getContact(sender).pictureStatus),
-"size": "xl",
-"position": "relative",
-"margin": "none",
-"align": "end",
-"gravity": "top",
-"aspectMode": "cover"
-}
-],
-"cornerRadius": "100px",
-"width": "72px",
-"height": "72px",
-"margin": "xxl",
-"spacing": "xxl",
-"position": "relative",
-"borderColor": "#FF0000",
-"borderWidth": "1px"
-},
-{
-"type": "box",
-"layout": "vertical",
-"contents": [
-{
-"type": "box",
-"layout": "baseline",
-"contents": [
-{
-"type": "text",
-"text": " "
-}
-],
-"spacing": "sm",
-"margin": "md"
-},
-{
-"type": "box",
-"layout": "vertical",
-"contents": [
-{
-"type": "text",
-"text": "{}".format(run),
-"size": "sm",
-"color": "#ffffff",
-},
-{
-"type": "text",
-"text": " 🇹🇭 เวลาประเทศไทย 🇹🇭",
-"size": "sm",
-"color": "#FF0000",
-}
-],
-"spacing": "sm",
-"margin": "md"
-}
-]
-}
-],
-"spacing": "xl",
-"paddingAll": "20px",
-"paddingTop": "10px",
-"paddingBottom": "10px",
-"paddingStart": "20px",
-"paddingEnd": "20px",
-"paddingAll": "3px",
-"borderColor": "#ffffff",
-"cornerRadius": "20px",
-"flex": 1,
-"borderWidth": "1px"
-}
-],
-"paddingAll": "3px",
-"backgroundColor": "#000000",
-"borderWidth":"2px",
-"borderColor": "#ffffff",
-"cornerRadius":"xl"
-}
-}
-]
-}
-}
-                    sendTemplate(to, data)               
-                if text.lower() == 'ออน5':
-                    timeNow = time.time() - Start
-                    runtime = timeChange(timeNow)
-                    run = "⇨ เวลาออน ⇦\n"
-                    run += runtime
-                    data = {
-                         "type": "flex",
-                         "altText": "{}".format(run),
-                                 "contents": { 
-                       "type": "bubble",     
-                       "header": {
-                                            "type": "box",
-                                            "layout": "baseline",
-                                            "contents": [
-                                                    {
-                                                    "type": "text",
-                                                    "text": " 🌟 •₮€₳M•𖤍ĿɪϰüX ཽ🌟 ",
-                                                      "align" : "center",
-                                                    "weight": "bold",
-                                                    "color": "#000000",
-                                                    "size": "md"
-                                                }
-                                            ]
-                                        },
-                       "hero": {
-                         "type": "image",
-                         "url": "https://sv1.picz.in.th/images/2019/10/20/cyz3aW.jpg",
-                         "size": "full",
-                           "aspectRatio": "1:1",
-                            "aspectMode": "fit",
-                            "action": {
-                                 "type":"uri","uri":"line://app/1602687308-GXq4Vvk9?type=image&img=https://sv1.picz.in.th/images/2019/01/12/9HllFJ.gif"
-                         }
-                       },
-                       "body": {
-                       "type": "box",
-                       "layout": "vertical",
-                         "contents": [
-                            {
-                            "type": "text",
-                            "text": "「 Time to ֆҽlßօℓ 」",
-                            "weight": "bold",
-                            "align": "center",
-                            "size": "md",
-                            "color": "#FF69B4",
-                            'flex': 1,
-                            },
-                            {
-                             "type": "text",
-                             "text": "{}".format(run),
-                             "size": "md",
-                             "weight": "bold",
-                              "align": "center",
-                              "color": "#FF69B4",
-                             "wrap": True,
-                             "flex": 1
-                           }
-                         ]
-                       },
-                       "footer": {
-                          "type": "box",
-                          "layout": "vertical",
-                          "contents": [
-                            {
-                              "type": "text",
-                              "text": "「✯L͙I͙N͙U͙X͙ H͙U͙N͙T͙E͙R͙ C͙L͙U͙B͙✯」",
-                              "color": "#FF69B4",
-                              "weight": "bold",
-                              "size": "md",
-                              "align": "center"
-                            }
-                          ]
-                        },
-                        "styles": {
-                          "header": {
-                            "backgroundColor": "#FF69B4"
-                            },
-                            "hero": {
-                              "separator": True,
-                              "separatorColor": "#FF69B4",
-                              "backgroundColor": "#FF69B4"
-                            },
-                            "footer": {
-                              "backgroundColor": "#ffffff",
-                              "separator": True,
-                              "separatorColor": "#FF69BC"
-                            },
-                            "body": {
-                             "backgroundColor": "#ffffff",
-                             
-                            }
-                          }
-                        }
-                      }
                     sendTemplate(to, data)
                 elif text.lower() == "รีบอท" or text.lower() == "reset":
                     gifnya = ["https://i.pinimg.com/originals/2e/d7/37/2ed737ba301b048afdb355fd9d1c2e86.gif"]
@@ -7224,7 +7009,7 @@ async def maxgieBot(op):
                             temp_flood[receiver]["flood"] = 0
                             temp_flood[receiver]["expire"] = True
 #                            maxgie.unsendMessage(msg_id)
-                            a = "??คุณฝลัดข้อความมากเกินไป🌟"
+                            a = "🌟คุณฝลัดข้อความมากเกินไป🌟"
                             sendTemplate(to,{"type":"flex","altText":"{}".format(a),"contents":{"type":"bubble","styles":{"footer":{"backgroundColor":"#000000"}},"footer":{"type":"box","layout":"vertical","spacing":"sm","contents":[{"type":"box","layout":"baseline","contents":[{"type":"icon","url":"https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),"size":"md"},{"type":"text","text":"{}".format(a),"color":"#0099FF","gravity":"center","align":"center","wrap":True,"size":"md"},{"type":"icon","url":"https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),"size":"md"}]}]}}})
                             maxgie.kickoutFromGroup(msg.to,[sender])
                       else:
