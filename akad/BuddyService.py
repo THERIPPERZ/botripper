@@ -229,112 +229,7 @@ class Client(Iface):
         self._oprot.writeMessageBegin('getBuddyOnAir', TMessageType.CALL, self._seqid)
         args = getBuddyOnAir_args()
         args.buddyMid = buddyMid
-        args.write(self._oprot)
-        self._oprot.writeMessageEnd()
-        self._oprot.trans.flush()
-
-    def recv_getBuddyOnAir(self):
-        iprot = self._iprot
-        (fname, mtype, rseqid) = iprot.readMessageBegin()
-        if mtype == TMessageType.EXCEPTION:
-            x = TApplicationException()
-            x.read(iprot)
-            iprot.readMessageEnd()
-            raise x
-        result = getBuddyOnAir_result()
-        result.read(iprot)
-        iprot.readMessageEnd()
-        if result.success is not None:
-            return result.success
-        if result.e is not None:
-            raise result.e
-        raise TApplicationException(TApplicationException.MISSING_RESULT, "getBuddyOnAir failed: unknown result")
-
-    def getCountriesHavingBuddy(self):
-        self.send_getCountriesHavingBuddy()
-        return self.recv_getCountriesHavingBuddy()
-
-    def send_getCountriesHavingBuddy(self):
-        self._oprot.writeMessageBegin('getCountriesHavingBuddy', TMessageType.CALL, self._seqid)
-        args = getCountriesHavingBuddy_args()
-        args.write(self._oprot)
-        self._oprot.writeMessageEnd()
-        self._oprot.trans.flush()
-
-    def recv_getCountriesHavingBuddy(self):
-        iprot = self._iprot
-        (fname, mtype, rseqid) = iprot.readMessageBegin()
-        if mtype == TMessageType.EXCEPTION:
-            x = TApplicationException()
-            x.read(iprot)
-            iprot.readMessageEnd()
-            raise x
-        result = getCountriesHavingBuddy_result()
-        result.read(iprot)
-        iprot.readMessageEnd()
-        if result.success is not None:
-            return result.success
-        if result.e is not None:
-            raise result.e
-        raise TApplicationException(TApplicationException.MISSING_RESULT, "getCountriesHavingBuddy failed: unknown result")
-
-    def getNewlyReleasedBuddyIds(self, country):
-        """
-        Parameters:
-         - country
-        """
-        self.send_getNewlyReleasedBuddyIds(country)
-        return self.recv_getNewlyReleasedBuddyIds()
-
-    def send_getNewlyReleasedBuddyIds(self, country):
-        self._oprot.writeMessageBegin('getNewlyReleasedBuddyIds', TMessageType.CALL, self._seqid)
-        args = getNewlyReleasedBuddyIds_args()
-        args.country = country
-        args.write(self._oprot)
-        self._oprot.writeMessageEnd()
-        self._oprot.trans.flush()
-
-    def recv_getNewlyReleasedBuddyIds(self):
-        iprot = self._iprot
-        (fname, mtype, rseqid) = iprot.readMessageBegin()
-        if mtype == TMessageType.EXCEPTION:
-            x = TApplicationException()
-            x.read(iprot)
-            iprot.readMessageEnd()
-            raise x
-        result = getNewlyReleasedBuddyIds_result()
-        result.read(iprot)
-        iprot.readMessageEnd()
-        if result.success is not None:
-            return result.success
-        if result.e is not None:
-            raise result.e
-        raise TApplicationException(TApplicationException.MISSING_RESULT, "getNewlyReleasedBuddyIds failed: unknown result")
-
-    def getPopularBuddyBanner(self, language, country, applicationType, resourceSpecification):
-        """
-        Parameters:
-         - language
-         - country
-         - applicationType
-         - resourceSpecification
-        """
-        self.send_getPopularBuddyBanner(language, country, applicationType, resourceSpecification)
-        return self.recv_getPopularBuddyBanner()
-
-    def send_getPopularBuddyBanner(self, language, country, applicationType, resourceSpecification):
-        self._oprot.writeMessageBegin('getPopularBuddyBanner', TMessageType.CALL, self._seqid)
-        args = getPopularBuddyBanner_args()
-        args.language = language
-        args.country = country
-        args.applicationType = applicationType
-        args.resourceSpecification = resourceSpecification
-        args.write(self._oprot)
-        self._oprot.writeMessageEnd()
-        self._oprot.trans.flush()
-
-    def recv_getPopularBuddyBanner(self):
-        iprot = self._iprot
+        args.writerot
         (fname, mtype, rseqid) = iprot.readMessageBegin()
         if mtype == TMessageType.EXCEPTION:
             x = TApplicationException()
@@ -516,7 +411,7 @@ class Processor(Iface, TProcessor):
             msg_type = TMessageType.REPLY
             result.e = e
         except TApplicationException as ex:
-            logging.exception('TApplication exception in handler')
+            logging.except                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ion('TApplication exception in handler')
             msg_type = TMessageType.EXCEPTION
             result = ex
         except Exception:
